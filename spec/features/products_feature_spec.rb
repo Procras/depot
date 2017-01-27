@@ -21,9 +21,7 @@ feature 'products' do
     end
   end
   context 'product has been added' do
-    before do
-      Product.create(title: 'Iphone')
-    end
+    before { Product.create title: 'Iphone', description: 'expensive', id: 1, image_url: "http://tny.im/89g", price: 98.99 }
     scenario 'display products' do
       visit '/products'
       expect(page).to have_content 'Iphone'
@@ -31,7 +29,7 @@ feature 'products' do
     end
   end
   context 'viewing specific product' do
-    let!(:pixel){ Product.create(title: 'Google Pixel', description: "it's really an HTC") }
+    let!(:pixel){ Product.create(title: 'Google Pixel', description: "it's really an HTC", image_url: "http://tny.im/89g", price: 98.99) }
 
     scenario 'lets a user view a product' do
       visit '/products'
@@ -42,7 +40,7 @@ feature 'products' do
     end
   end
   context 'updating products' do
-    before { Product.create title: 'Iphone', description: 'expensive', id: 1 }
+    before { Product.create title: 'Iphone', description: 'expensive', id: 1, image_url: "http://tny.im/89g", price: 98.99 }
     scenario 'let a user edit a product' do
       visit '/products'
       click_link 'Edit'
@@ -55,7 +53,7 @@ feature 'products' do
     end
   end
   context 'deleting products' do
-    before { Product.create title: 'Iphone', description: 'expensive', id: 1 }
+    before { Product.create title: 'Iphone', description: 'expensive', id: 1, image_url: "http://tny.im/89g", price: 98.99 }
     scenario 'removes a product when a user clicks a destroy link' do
       visit '/products'
       click_link 'Destroy'
