@@ -30,7 +30,6 @@ feature 'products' do
   end
   context 'viewing specific product' do
     let!(:pixel){ Product.create(title: 'Google Pixel', description: "it's really an HTC", image_url: "https://i.ytimg.com/vi/LA2Cgan9j5I/maxresdefault.jpg", price: 98.99) }
-
     scenario 'lets a user view a product' do
       visit '/products'
       click_link 'Show'
