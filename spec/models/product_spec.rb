@@ -20,4 +20,5 @@ describe Product, type: :model do
   it { should validate_presence_of(:image_url) }
   it { should validate_presence_of(:price) }
   it { should validate_numericality_of(:price).is_greater_than_or_equal_to(0.01) }
+  it { is_expected.to have_many :line_items }
 end
